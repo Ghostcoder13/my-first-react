@@ -1,17 +1,17 @@
+import { useState } from "react";
+
 function NavBar ({pokemonIndex, pokemonList, setPokemonIndex}) {
-    const handleClickPrevious = () => {
-        setPokemonIndex(pokemonIndex - 1) 
-      } 
-      const handleClickNext = () => {
-        setPokemonIndex(pokemonIndex + 1)
-      }
+   
+ return <div>
+  
+  {pokemonList.map((pokemon, pokemonIndex) => (
+        <button key={pokemon.name} onClick={() => { setPokemonIndex(pokemonIndex) }}>{pokemon.name}</button>
+    ))}
     
-      return(
-        <div className="NavBar">
-            { pokemonIndex > 0 ? <button onClick={handleClickPrevious}>Previous</button> : ""}
-            { pokemonIndex < pokemonList.length - 1 ? <button onClick={handleClickNext}>Next</button> : ""} 
-        </div> 
-    )
+    </div>
 }
+
+
+
 
 export default NavBar
